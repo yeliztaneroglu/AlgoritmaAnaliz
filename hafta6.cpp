@@ -1,31 +1,40 @@
+#include <cstdlib>
 #include <iostream>
-#include <math.h>
 
 using namespace std;
-
-double noRecPower(int a,int b){
-    double result=1;
-    int step=0;
-    while(b){
-        if(b%2==0){
-            result=result*result;
-            b=b/2;
-        }else{
-            result=result*a;
-            b=b-1;
-        }
-        step++;
+int step=0;
+int step2=0;
+long long power(long long x, long long y) {
+     step++;
+    if(y == 0) 
+    {  
+         return 1;
     }
-    cout<<"Step count: "<<step<<endl;
-    return result;
-
+    long long d = power(x, y/2);
+    if(y%2 == 0) 
+    {          
+           return d*d;
+    }
+    else 
+    {      
+         return x*d*d;
+    }
 }
-
-
-
-int main()
+long long power2(long long a, long long b){
+    long long toplam = 1;
+    step++;
+    for(int i=0; i<b; i++){
+            step2++;
+        toplam *= a;
+    }
+    return toplam;
+}
+int main(int argc, char *argv[])
 {
-    cout << noRecPower(3,62)<< endl;
-    cout<<"Log deger:"<<log2(62)<<endl;
-    return 0;
+    cout<<power(2,60)<<endl;
+    cout<<step<<endl;
+    cout<<power2(2,60)<<endl;
+    cout<<step2<<endl;
+    system("PAUSE");
+    return EXIT_SUCCESS;
 }

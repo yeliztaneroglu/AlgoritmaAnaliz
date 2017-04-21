@@ -1,1 +1,2 @@
 # AlgoritmaAnaliz
+Haftalara göre düzenlendi.
